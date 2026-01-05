@@ -31,10 +31,10 @@ export const exceptionHandlingMiddleware = (err, req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
 
     if (err instanceof ValidationException) {
-        res.status(400).json(createErrorResponse(400, err.message, err.errors));
+        res.status(400).json(createErrorResponse(false, err.message, err.errors));
     }
     else if (err instanceof Fx2sException) {
-        res.status(400).json(createErrorResponse(400, err.message, err.errors));
+        res.status(400).json(createErrorResponse(false, err.message, err.errors));
     }
     else {
         const message = err.message || 'Internal Server Error';

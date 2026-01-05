@@ -13,10 +13,10 @@ export const registerValidation = [
     body('password')
         .notEmpty().withMessage('Password is required')
         .isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
-        body('gender')
+    body('gender')
         .notEmpty().withMessage('Gender is required')
-        ,
-        body('date')
+    ,
+    body('date')
         .notEmpty().withMessage('Dob is required')
         .isDate()
 ];
@@ -35,7 +35,7 @@ export const loginValidation = [
 export const verifyValidation = [
     body('otp')
         .notEmpty().withMessage('Otp is required')
-        .isLength({min:6, max:6}).withMessage('Otp must be 6 characters long '),
+        .isLength({ min: 6, max: 6 }).withMessage('Otp must be 6 characters long '),
 ];
 
 export const getUserValidation = [
@@ -47,7 +47,7 @@ export const getAllUsersValidation = [
     body('pagesize')
         .notEmpty().withMessage('PageSize is required')
         .isInt(),
-        body('pageindex')
+    body('pageindex')
         .notEmpty().withMessage('PageIndex is required')
         .isInt(),
 ];
@@ -64,30 +64,30 @@ export const resetValidation = [
         .isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
 ];
 
-export const addFriendValidation= [
-        body('friendId')
+export const addFriendValidation = [
+    body('friendId')
         .notEmpty().withMessage('friendId is required')
 ];
 
-export const cancelRequestValidation= [
-        body('friendId')
+export const cancelRequestValidation = [
+    body('friendId')
         .notEmpty().withMessage('friendId is required')
-        ,];
+    ,];
 
-export const deleteFriendValidation= [
-        body('friendId')
+export const deleteFriendValidation = [
+    body('friendId')
         .notEmpty().withMessage('friendId is required')
-        ,];
+    ,];
 
-        export const findFriendsValidation= [
-            body('ids')
-                .notEmpty().withMessage('Ids is required')
-               
-                ,];
+export const findFriendsValidation = [
+    body('ids')
+        .notEmpty().withMessage('Ids is required')
 
-        export const AcceptFriendValidation= [
-                body('friendId')
-                .notEmpty().withMessage('friendId is required')
-                ,];
-                
+    ,];
+
+export const AcceptFriendValidation = [
+    body('friendId')
+        .notEmpty().withMessage('friendId is required')
+    ,];
+
 
