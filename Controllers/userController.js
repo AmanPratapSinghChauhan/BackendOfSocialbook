@@ -30,7 +30,7 @@ export const register = async (req, res, next) => {
 
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const otp = Math.floor(Math.random() * 1000000);
+    const otp = Math.floor(100000 + Math.random() * 900000);
     user = await User.create({
       name,
       email,
@@ -52,8 +52,8 @@ export const register = async (req, res, next) => {
       subject: `Socialbook Verification Email`,
       message,
     });
-    console.log("Email sent successfully");
     const token = user.getJWTToken();
+    user.otp = 10000;
     res.status(200).json({
       status: true,
       msg: `OTP sent to ${user.email} successfully, Valid for 5 minutes.`,
